@@ -102,11 +102,11 @@ Before setting up the project, ensure you have the following installed:
 
 The backend requires the following environment variables to be set in your configuration:
 
-- MYSQL_DATABASE_HOST=localhost
-- MYSQL_DATABASE_PORT=3306
-- MYSQL_DATABASE_USER=root
-- MYSQL_DATABASE_PASSWORD=
-- MYSQL_DATABASE_DB=stock_trader
+- `MYSQL_DATABASE_HOST=localhost`
+- `MYSQL_DATABASE_PORT=3306`
+- `MYSQL_DATABASE_USER=root`
+- `MYSQL_DATABASE_PASSWORD=`
+- `MYSQL_DATABASE_DB=stock_trader`
 
 ## Running the Application
 
