@@ -1,0 +1,37 @@
+curl -X POST http://127.0.0.1:5000/user/register \
+-H "Content-Type: application/json" \
+-d '{"username": "user", "password": "password"}'
+
+curl -X POST http://127.0.0.1:5000/user/login \
+-H "Content-Type: application/json" \
+-d '{"username": "user", "password": "password"}'
+
+curl -X POST http://localhost:5000/user/addbalance \
+  -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcyODE4NzU1MiwianRpIjoiMDU4ZWEzOWUtNTUyYy00MjYyLWE5MTYtZGEzODI4Zjk4NTE4IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MSwibmJmIjoxNzI4MTg3NTUyLCJleHAiOjE3MjgxODg0NTJ9.kqEmFuxkcGNvRH8PgNx_DyEFlUwn62U6UVhRbOeAQ4c" \
+  -H "Content-Type: application/json" \
+  -d '{"amount": 1000.00}'
+
+curl -X GET http://localhost:5000/stocks/tickers \
+-H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcyODE3ODgzNiwianRpIjoiMzBmYjdkOWUtZDcxYS00NjRiLTk4YWMtNGIyY2ZlZWQyYTkzIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MSwibmJmIjoxNzI4MTc4ODM2LCJleHAiOjE3MjgxNzk3MzZ9.eE-XMbiiZzfOe6c0MfFJrdTtyJqtusVVxgWN5pnvnJ8"
+
+curl -X POST http://localhost:5000/stocks/getstocks \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcyODE3ODgzNiwianRpIjoiMzBmYjdkOWUtZDcxYS00NjRiLTk4YWMtNGIyY2ZlZWQyYTkzIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MSwibmJmIjoxNzI4MTc4ODM2LCJleHAiOjE3MjgxNzk3MzZ9.eE-XMbiiZzfOe6c0MfFJrdTtyJqtusVVxgWN5pnvnJ8" \
+-d '{"tickers": ["AAPL", "GOOGL", "MSFT"]}'
+
+curl -X POST http://localhost:5000/transaction/buy \
+  -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcyODE4ODYwMSwianRpIjoiZGY5Mjk4ZGItNTU0ZC00MzA2LWJmMTMtNTk5YTFmYTUxODA2IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MSwibmJmIjoxNzI4MTg4NjAxLCJleHAiOjE3MjgxODk1MDF9.lB7HVE9oL_onmDmBdnjqlMcdXORWNe2W5GkjNXob2TU" \
+  -H "Content-Type: application/json" \
+  -d '{"stock_ticker": "AAPL", "quantity": 1}'
+
+curl -X POST http://localhost:5000/transaction/sell \
+  -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcyODE4NzU1MiwianRpIjoiMDU4ZWEzOWUtNTUyYy00MjYyLWE5MTYtZGEzODI4Zjk4NTE4IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MSwibmJmIjoxNzI4MTg3NTUyLCJleHAiOjE3MjgxODg0NTJ9.kqEmFuxkcGNvRH8PgNx_DyEFlUwn62U6UVhRbOeAQ4c" \
+  -H "Content-Type: application/json" \
+  -d '{"stock_ticker": "AAPL", "quantity": 1}'
+
+curl -X GET "http://localhost:5000/portfolio/fetchall" \
+  -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcyODE4NzU1MiwianRpIjoiMDU4ZWEzOWUtNTUyYy00MjYyLWE5MTYtZGEzODI4Zjk4NTE4IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MSwibmJmIjoxNzI4MTg3NTUyLCJleHAiOjE3MjgxODg0NTJ9.kqEmFuxkcGNvRH8PgNx_DyEFlUwn62U6UVhRbOeAQ4c" \
+  -H "Content-Type: application/json"
+
+curl -X GET "http://localhost:5000/transaction/history" \
+  -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcyODE4ODYwMSwianRpIjoiZGY5Mjk4ZGItNTU0ZC00MzA2LWJmMTMtNTk5YTFmYTUxODA2IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MSwibmJmIjoxNzI4MTg4NjAxLCJleHAiOjE3MjgxODk1MDF9.lB7HVE9oL_onmDmBdnjqlMcdXORWNe2W5GkjNXob2TU"
