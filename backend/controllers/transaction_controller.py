@@ -4,7 +4,6 @@ from models.user import User
 from models.stock import Stock
 from models.portfolio import Portfolio
 from datetime import datetime
-import yfinance as yf
 
 class TransactionController:
     @staticmethod
